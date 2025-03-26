@@ -71,7 +71,7 @@ material_side_nav_tabs <- function(side_nav_tabs, icons = NULL, color = NULL, fo
             "$('.shiny-material-side-nav-tab-content').hide();",
             "$('.shiny-material-side-nav-tab-content').trigger('hide');",
             "$('.shiny-material-side-nav-tab-content').trigger('hidden');",
-            "$('.shiny-material-side-nav-tab').removeClass('active');",
+            # "$('.shiny-material-side-nav-tab').removeClass('active');",
             "$('#", side_nav_tabs[[i]], "').show();",
             "$('#", side_nav_tabs[[i]], "').trigger('show');",
             "$('#", side_nav_tabs[[i]], "').trigger('shown');",
