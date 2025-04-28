@@ -12,14 +12,13 @@ nav {
       line-height: normal;
     }
   }
-
+  border-radius: 0px 0px 0px 15px;
   color: $navbar-font-color;
   @extend .z-depth-1;
   background-color: $primary-color;
   width: 100%;
   height: $navbar-height-mobile;
   line-height: $navbar-line-height-mobile;
-  border-radius: 0px 0px 0px 15px;
 
   a { color: $navbar-font-color; }
 
