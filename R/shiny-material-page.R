@@ -21,7 +21,7 @@
 #'   background_color = "blue lighten-4",
 #'   shiny::tags$h1("Page Content")
 #' )
-material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color = NULL, background_color = "grey lighten-4", font_color = NULL, include_fonts = FALSE, include_nav_bar = TRUE, include_icons = FALSE, materialize_in_www = FALSE, primary_theme_color = NULL, secondary_theme_color = NULL){
+material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color = NULL, background_color = "grey lighten-4", font_color = NULL, include_fonts = FALSE, include_nav_bar = TRUE, include_icons = FALSE, materialize_in_www = FALSE, primary_theme_color = NULL, secondary_theme_color = NULL,imageObjt = NULL){
   
   materialize_version <- "1.0.0"
   materialicons_version <- "v42"
@@ -143,6 +143,10 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
     
   }
   
+  if(!is.list(imageObjt)){
+    stop("Invalid argument: 'imageObjt' must be a list with two elements: 'image_source' and 'style'")
+  }
+  
   material_nav_bar <- shiny::tags$nav(
     class = 
       ifelse(
@@ -162,7 +166,12 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
             paste0(" ", font_color, "-text")
           )
         ),
-        shiny::HTML(paste0("&nbsp;", title))
+        shiny::tags$div(
+          shiny::tags$img(
+            style = imageObjt$style %||% "height:80px;width:150px",
+            src = imageObjt$image_source
+          )
+        )
       )
     )
   )
